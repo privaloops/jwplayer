@@ -267,6 +267,7 @@ public class View extends Sprite {
             }
             if (disp) {
                 _mediaLayer.addChild(disp);
+                _mediaLayer.alpha = 1;
                 resizeMedia(_model.width, _model.height);
             }
         }
