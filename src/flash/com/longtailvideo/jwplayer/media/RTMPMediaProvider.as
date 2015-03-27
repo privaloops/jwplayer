@@ -394,6 +394,9 @@
 
 		/** Interval for the position progress. **/
 		private function positionInterval():void {
+            if(!_stream) {
+                return;
+            }
 			var pos:Number = Math.round((_stream.time) * 10) / 10;
 			var bfr:Number = Math.round(_stream.bufferLength * 10 / _stream.bufferTime)/10;
 			// Toggle between buffering and playback states
@@ -554,6 +557,7 @@
 			if (_stream && _stream.time) {
 				_stream.close();
 			}
+            clearInterval(_interval);
 			_stream = null;
 			if (_video) {
 				_video.clear();
@@ -563,7 +567,6 @@
 			_application = _type = null;
 			_metadata = _transition = _auto = false;
 			_connection.close();
-			clearInterval(_interval);
 			_position = _level = 0;
 			super.stop();
 		}
