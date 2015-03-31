@@ -144,9 +144,6 @@ define([
             }
             return _this.getPlaylist()[item];
         };
-        _this.getRenderingMode = function () {
-            return 'html5';
-        };
 
         // Player Public Methods
         _this.setFullscreen = function (fullscreen) {
