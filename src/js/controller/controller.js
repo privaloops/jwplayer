@@ -1,5 +1,5 @@
 define([
-    'api/internal-api',
+    'controller/internal-controller',
     'plugins/plugins',
     'underscore',
     'controller/Setup',

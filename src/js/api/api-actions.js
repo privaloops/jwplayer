@@ -17,15 +17,22 @@ define([
             'playlistNext',
             'playlistPrev',
             'playlistItem',
+            'resize',
 
             //'addButton',
             'removeButton',
 
-            'registerPlugin'
+            'registerPlugin',
+
+            'attachMedia',
+            'detachMedia'
         ];
 
         _.each(passthroughs, function(func) {
-            _api[func] = _controller[func].bind(_controller);
+            _api[func] = function() {
+                //return _controller[func].bind(_controller);
+                return _controller[func].apply(_controller, arguments);
+            };
         });
     };
 });

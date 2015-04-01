@@ -9,10 +9,11 @@ define([
     'utils/timer',
     'utils/underscore',
     'controller/controller',
-    'api/mutators',
+    'api/api-actions',
+    'api/api-mutators',
     'api/callbacks-deprecate'
 ], function(Embed, Instream, events, states,
-            Events, utils, cssUtils, Timer, _, Controller, mutatorsInit, legacyInit) {
+            Events, utils, cssUtils, Timer, _, Controller, actionsInit, mutatorsInit, legacyInit) {
 
     function addFocusBorder(container) {
         utils.addClass(container, 'jw-tab-focus');
@@ -76,6 +77,7 @@ define([
 
         // Add a bunch of methods
         _controller = new Controller();
+        actionsInit(this, _controller);
         mutatorsInit(this, _controller);
         legacyInit(this);
 
@@ -115,7 +117,7 @@ define([
             };
         };
 
-        _this.getContainer = function () {
+        this.getContainer = function () {
             return _this.container;
         };
 
@@ -135,10 +137,11 @@ define([
             }
         };
 
-        _this.getMeta = function () {
-            return _this.getItemMeta();
+        this.getMeta = this.getItemMeta = function () {
+            return _itemMeta;
         };
-        _this.getPlaylist = _controller.getPlaylist;
+
+        //_this.getPlaylist = _controller.getPlaylist;
 
         _this.getPlaylistItem = function (item) {
             if (!utils.exists(item)) {
@@ -148,9 +151,9 @@ define([
         };
 
         // Player Public Methods
-        _this.setFullscreen = _controller.setFullscreen;
+        //_this.setFullscreen = _controller.setFullscreen;
 
-        _this.setMute = _controller.setMute;
+        //_this.setMute = _controller.setMute;
 
         _this.lock = function () {
             return _this;
@@ -166,8 +169,6 @@ define([
             _controller.load(toLoad);
             return _this;
         };
-
-        _this.resize = _controller.resize;
 
         _this.play = function (state) {
             if (state !== undefined) {
@@ -285,18 +286,7 @@ define([
             _this.trigger(evt.newstate, evt);
         }
 
-        _this.detachMedia = _controller.detachMedia;
-
-        _this.attachMedia = function (seekable) {
-            return _controller.attachMedia(seekable);
-        };
-
-
-        _this.getAudioTracks = function () {
-            return _controller.getAudioTracks();
-        };
-
-        _this.playerReady = function () {
+        this.playerReady = function () {
             _playerReady = true;
 
             while(_eventQueue.length) {
@@ -325,10 +315,6 @@ define([
             _this.trigger(events.API_READY, {
                 setupTime : _qoe.between(events.API_SETUP, events.API_READY)
             });
-        };
-
-        _this.getItemMeta = function () {
-            return _itemMeta;
         };
 
         return _this;
