@@ -11,9 +11,10 @@ define([
             //'load',
             //'play',
             //'pause',
+            //'remove',
+
             'seek',
             'stop',
-            //'remove',
             'playlistNext',
             'playlistPrev',
             'playlistItem',

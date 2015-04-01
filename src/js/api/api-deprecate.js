@@ -2,20 +2,24 @@ define([
 ], function() {
 
     return function(_api, _controller) {
-        /*
-        _controller.jwPlay = _controller.play;
-        _controller.jwPause = _controller.pause;
-        _controller.jwSetMute = _controller.setMute;
-        _controller.jwLoad = _controller.load;
-        _controller.jwPlaylistItem = _controller.item;
-        _controller.jwGetAudioTracks = _controller.getAudioTracks;
-        _controller.jwDetachMedia = _controller.detachMedia;
-        _controller.jwAttachMedia = _controller.attachMedia;
-        _controller.jwAddEventListener = _controller.on;
-        _controller.jwRemoveEventListener = _controller.off;
-        */
 
-        // This is only required for legacy support of JWPlayer 6
+        // This file is only required for legacy support of JWPlayer 6
+
+        // Rename
+        _api.getPlaylistIndex = _api.getIndex;
+
+        // jwNames
+        _api.jwPlay = _controller.play;
+        _api.jwPause = _controller.pause;
+        _api.jwSetMute = _controller.setMute;
+        _api.jwLoad = _controller.load;
+        _api.jwPlaylistItem = _controller.item;
+        _api.jwGetAudioTracks = _controller.getAudioTracks;
+        _api.jwDetachMedia = _controller.detachMedia;
+        _api.jwAttachMedia = _controller.attachMedia;
+        _api.jwAddEventListener = _controller.on;
+        _api.jwRemoveEventListener = _controller.off;
+
         _api.jwStop = _controller.stop;
         _api.jwSeek = _controller.seek;
         _api.jwSetVolume = _controller.setVolume;
