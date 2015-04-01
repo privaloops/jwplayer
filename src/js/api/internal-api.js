@@ -21,32 +21,6 @@ define([
             _controller.jwDockAddButton = _view.addButton;
             _controller.jwDockRemoveButton = _view.removeButton;
 
-            // // TODO: remove redundancies
-            _controller.jwPlay = _controller.play;
-            _controller.jwPause = _controller.pause;
-            _controller.jwStop = _controller.stop;
-            _controller.jwSeek = _controller.seek;
-            _controller.jwSetVolume = _controller.setVolume;
-            _controller.jwSetMute = _controller.setMute;
-            _controller.jwLoad = _controller.load;
-            _controller.jwPlaylistNext = _controller.next;
-            _controller.jwPlaylistPrev = _controller.prev;
-            _controller.jwPlaylistItem = _controller.item;
-            _controller.jwSetFullscreen = _controller.setFullscreen;
-            _controller.jwGetQualityLevels = _controller.getQualityLevels;
-            _controller.jwGetCurrentQuality = _controller.getCurrentQuality;
-            _controller.jwSetCurrentQuality = _controller.setCurrentQuality;
-            _controller.jwGetAudioTracks = _controller.getAudioTracks;
-            _controller.jwGetCurrentAudioTrack = _controller.getCurrentAudioTrack;
-            _controller.jwSetCurrentAudioTrack = _controller.setCurrentAudioTrack;
-            _controller.jwGetCaptionsList = _controller.getCaptionsList;
-            _controller.jwGetCurrentCaptions = _controller.getCurrentCaptions;
-            _controller.jwSetCurrentCaptions = _controller.setCurrentCaptions;
-            _controller.jwDetachMedia = _controller.detachMedia;
-            _controller.jwAttachMedia = _controller.attachMedia;
-            _controller.jwAddEventListener = _controller.on;
-            _controller.jwRemoveEventListener = _controller.off;
-
             // getters
             _controller.jwGetPlaylistIndex = _statevarFactory('item');
             _controller.jwGetPosition = _statevarFactory('position');
