@@ -5,7 +5,8 @@ define([
     'events/states',
     'utils/eventdispatcher',
     'utils/embedswf',
-    'providers/default'
+    'providers/default',
+    'utils/helpers'
 ], function(utils, _, events, states, eventdispatcher, EmbedSwf, DefaultProvider) {
 
 
@@ -111,7 +112,10 @@ define([
                 setContainer: function(parent) {
                     _container = parent;
 
-                    _swf = _swf || EmbedSwf.embed('../bin-debug/jwplayer.flash.swf', parent, getObjectId(_playerId));
+                    if (!_swf) {
+                        var base = utils.getScriptPath('jwplayer.js');
+                        _swf = EmbedSwf.embed(base + 'jwplayer.flash.swf', parent, getObjectId(_playerId));
+                    }
 
                     // place div on top of swf to capture clicks
                     if (!_clickOverlay) {
