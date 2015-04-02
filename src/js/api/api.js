@@ -268,7 +268,7 @@ define([
 
             // so players can be removed before loading completes
             _playerReady = true;
-            _callInternal('jwPlayerDestroy');
+            _controller.playerDestroy();
 
             // terminate state
             _playerReady = false;
