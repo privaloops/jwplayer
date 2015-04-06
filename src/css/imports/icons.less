@@ -18,43 +18,39 @@
     font-style: normal;
 }
 
-.jwplayer .jw-thumb,
-.jwplayer .jw-icon-inline,
-.jwplayer .jw-icon-tooltip,
-.jwplayer .jw-icon-display,
-.jw-controlbar .jw-menu .jw-option:before {
-    font-family: 'jw-six-icons';
-    -webkit-font-smoothing: antialiased;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    text-transform: none;
-    background-color: transparent;
-    font-variant: normal;
 
-    /* Enable Ligatures ================ */
-    -webkit-font-feature-settings: "liga";
-    -moz-font-feature-settings: "liga=1";
-    -moz-font-feature-settings: "liga";
-    -ms-font-feature-settings: "liga" 1;
-    -o-font-feature-settings: "liga";
-    font-feature-settings: "liga";
-    -moz-osx-font-smoothing: grayscale;
-}
 
-.jw-icon-display,
-.jw-thumb,
-.jw-icon-inline,
-.jw-icon-tooltip {
-    color: @active-color;
-
-    &:hover,  {
-        color: @active-color;
-    }
-}
-
-/*** ICONS ***/
 .jwplayer {
+    .jw-thumb,
+    .jw-icon-inline,
+    .jw-icon-tooltip,
+    .jw-icon-display,
+    .jw-controlbar .jw-menu .jw-option:before {
+        color: @inactive-color;
+        font-family: 'jw-six-icons';
+        -webkit-font-smoothing: antialiased;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        text-transform: none;
+        background-color: transparent;
+        font-variant: normal;
+
+        /* Enable Ligatures ================ */
+        -webkit-font-feature-settings: "liga";
+        -moz-font-feature-settings: "liga=1";
+        -moz-font-feature-settings: "liga";
+        -ms-font-feature-settings: "liga" 1;
+        -o-font-feature-settings: "liga";
+        font-feature-settings: "liga";
+        -moz-osx-font-smoothing: grayscale;
+
+        &:hover,  {
+            color: @active-color;
+        }
+    }
+
+    /*** ICONS ***/
     .icon-audio-tracks {
         &:after {
             content: "\e600";
