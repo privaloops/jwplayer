@@ -94,7 +94,9 @@ define([
                 _view.completeSetup();
 
                 // Tell the api that we are loaded
-                _this.trigger(evt.type, evt);
+                _this.trigger(events.API_READY, {
+                    setupTime : _api._qoe.between(events.API_SETUP, events.API_READY)
+                });
 
                 // For 'onCast' callback
                 _model.on('change:castState', function(model, evt) {
@@ -120,7 +122,6 @@ define([
                         });
                     }
                 });
-
 
 
                 _model.mediaController.on('all', _this.trigger.bind(_this));

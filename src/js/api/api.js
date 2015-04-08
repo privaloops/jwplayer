@@ -284,14 +284,9 @@ define([
 
         var _onPlayerReady = function () {
             _playerReady = true;
-
             _qoe.tick(events.API_READY);
-
-            _this.trigger(events.API_READY, {
-                setupTime : _qoe.between(events.API_SETUP, events.API_READY)
-            });
         };
-        _controller.on(events.JWPLAYER_READY, _onPlayerReady);
+        _controller.on(events.API_READY, _onPlayerReady);
 
         this.on(events.JWPLAYER_PLAYLIST_ITEM, function () {
             _itemMeta = {};
